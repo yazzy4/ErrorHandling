@@ -3,7 +3,7 @@
 A quick exercise in error handling using do, try, catch, throw and throws
 
 ### Method to return a very weak and'encrypted' password
------------------------------
+===============
 
 ```swift
 func encrypt(_ str: String, withPassword password: String) -> String {
