@@ -2,7 +2,8 @@
 
 A quick exercise in error handling using do, try, catch, throw and throws
 
-###Method to return a very weak and'encrypted' password
+### Method to return a very weak and'encrypted' password
+-----------------------------
 
 ```swift
 func encrypt(_ str: String, withPassword password: String) -> String {
@@ -12,7 +13,10 @@ func encrypt(_ str: String, withPassword password: String) -> String {
     ```
     
 
-###Adding throws protects against unacceptable pw conditions e.g., a password called password or no password at all!
+### Adding throws protects against unacceptable pw conditions e.g., a password called password or no password at all!
+----------------------------
+
+
 
 ```swift
 func encrypt(_ str: String, withPassword password: String) throws -> String {
@@ -21,7 +25,8 @@ func encrypt(_ str: String, withPassword password: String) throws -> String {
     }
     ```
     
-###Add do, catch to viewDidLoad() 
+    
+### Add do, catch to viewDidLoad() 
 
 ```swift
         do {
