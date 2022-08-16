@@ -10,7 +10,7 @@ func encrypt(_ str: String, withPassword password: String) -> String {
         let encrypted = password + str + password
         return String(encrypted.reversed())
     }
-    ```
+ ```
     
 
 ### Adding throws protects against unacceptable pw conditions e.g., a password called password or no password at all!
@@ -23,10 +23,11 @@ func encrypt(_ str: String, withPassword password: String) throws -> String {
         let encrypted = password + str + password
         return String(encrypted.reversed())
     }
-    ```
+ ```
     
     
 ### Add do, catch to viewDidLoad() 
+----------------------------
 
 ```swift
         do {
@@ -35,13 +36,14 @@ func encrypt(_ str: String, withPassword password: String) throws -> String {
         } catch {
             print("Something ain't right")
         }
-    ```
+ ```
     
 - Adding do here is meant to alert the developer that some condition might fail 
 - If the condition does fail, 'catch' is where the failure is captured
 
 
-###Let's add an enum to specifiy the type of errors we might expect to see. In this case the pw might be too short or the user doesn't add a password
+### Let's add an enum to specifiy the type of errors we might expect to see. In this case the pw might be too short or the user doesn't add a password
+----------------------------
 
 ```swift 
 enum EncryptionError: Error {
