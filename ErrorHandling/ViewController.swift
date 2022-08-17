@@ -10,19 +10,17 @@ import UIKit
 enum EncryptionError: Error {
     case empty
     case short
+    case obvious(String)
 }
 
 class ViewController: UIViewController {
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // do this only if the condition passes
         do {
-            let encrypted = try encrypt("hackable, secret info", withPassword: "123456")
+            let encrypted = try encrypt("hackable,secretinfo", withPassword: "123456")
             print(encrypted)
-        //but just in case
         } catch EncryptionError.empty {
             print("You must provide a password")
         } catch EncryptionError.short {
@@ -32,20 +30,16 @@ class ViewController: UIViewController {
         }
     }
 
-    // Method to encrypt return an 'encrypted' pw
-    // Adding throws protects against unacceptable pw conditions e.g., a pw called pw or no pw
     func encrypt(_ str: String, withPassword password: String) throws -> String {
         guard password.count > 0 else { throw EncryptionError.empty }
         guard password.count >= 4 else { throw EncryptionError.short }
+        guard password != "123456" else  { throw EncryptionError.obvious("Mel Brooks in Spaceballs password")}
         
         let encrypted = password + str + password
         
         return String(encrypted.reversed())
     }
     
-    
-    
-
-
+    //https://www.hackingwithswift.com/new-syntax-swift-2-error-handling-try-catch
 }
 
